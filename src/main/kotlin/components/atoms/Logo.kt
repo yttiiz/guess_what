@@ -7,9 +7,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import quiz.ui.theme.primaryForegroundColor
 
 @Composable
 fun Logo(name: String, width: Double, height: Double) {
@@ -18,12 +18,12 @@ fun Logo(name: String, width: Double, height: Double) {
     ) {
         Image(
             contentDescription = "$name logo",
-            painter = painterResource(resourcePath = "/drawable/icons/dt_logo.svg"),
+            painter = painterResource(resourcePath = "/drawable/icons/yz_logo.svg"),
             modifier = Modifier
                 .width(width.dp)
                 .height(height.dp)
         )
         Spacer(modifier = Modifier.width(10.dp))
-        Text(text = name, color = Color.White)
+        Text(text = name, color = primaryForegroundColor)
     }
 }

@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21ef4d8c-fa33-4d55-8063-a4fa5b5c665c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/App.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/components/atoms/Logo.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/components/molecules/Header.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/screens/HomeScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/components/atoms/ButtonSubmit.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/components/molecules/LoginForm.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/components/organisms/HomeBody.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ui/theme/Color.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/App.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/atoms/Logo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/atoms/Logo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/molecules/Header.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/organisms/Header.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/screens/HomeScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/screens/HomeScreen.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +80,7 @@
     &quot;Gradle.desktop.executor&quot;: &quot;Run&quot;,
     &quot;Kotlin.MainKt.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/mnt/yz-store/programmation/kotlin/app/quiz/src/main/kotlin/components&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
@@ -98,11 +99,11 @@
       <recent name="$PROJECT_DIR$/src/main/resources/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/kotlin/components/organisms" />
       <recent name="$PROJECT_DIR$/src/main/resources/drawable/icons" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/components/molecules" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/components/atoms" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/components" />
-      <recent name="$PROJECT_DIR$/src/main/kotlin" />
     </key>
   </component>
   <component name="RunManager" selected="Kotlin.MainKt">

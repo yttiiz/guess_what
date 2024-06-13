@@ -16,7 +16,7 @@ fun HomeScreen(name: String) {
             .fillMaxWidth()
     ) {
         Column(modifier = Modifier.background(Color(0xFF005403))) {
-            Logo(name, width = 60.0, height = 70.6)
+            Logo(name, width = 40.0, height = 40.0)
         }
     }
 }
