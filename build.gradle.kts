@@ -22,7 +22,6 @@ dependencies {
     implementation("io.ktor:ktor-client-android:$ktorVersion")
     implementation("io.ktor:ktor-client-json:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-    implementation("io.ktor:ktor-client-logging:$ktorVersion")
     implementation("com.google.code.gson:gson:2.8.9")
     implementation(compose.desktop.currentOs)
 }

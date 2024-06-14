@@ -18,7 +18,7 @@ fun Logo(name: String, width: Double, height: Double) {
     ) {
         Image(
             contentDescription = "$name logo",
-            painter = painterResource(resourcePath = "/drawable/icons/yz_logo.svg"),
+            painter = painterResource("/drawable/icons/yz_logo.svg"),
             modifier = Modifier
                 .width(width.dp)
                 .height(height.dp)

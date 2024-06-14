@@ -16,7 +16,7 @@ class KtorApiClient {
         }
     }
 
-    suspend fun getUsers(limit: Byte? = null): Users{
+    suspend fun getUsers(limit: Byte? = null): Users {
         val url = URLBuilder().apply {
             takeFrom("https://dummyjson.com/users${if (limit != null) "?limit=$limit" else ""}")
         }
