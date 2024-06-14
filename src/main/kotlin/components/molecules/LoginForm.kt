@@ -7,6 +7,7 @@ import androidx.compose.material.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import quiz.data.remote.api.KtorApiClient
 
 @Composable
 fun LoginForm() {
@@ -31,6 +32,10 @@ fun LoginForm() {
             value = password,
             modifier = Modifier.fillMaxWidth()
         )
-        ButtonSubmit("Soumettre")
+        ButtonSubmit(
+            text = "Soumettre",
+            fetchData = {
+            val api = KtorApiClient()
+        })
     }
 }
