@@ -6,6 +6,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import quiz.components.molecules.UserCard
@@ -22,8 +23,7 @@ fun LoginForm() {
 
     val getUsersOnClick: () -> Unit = {
         coroutineScope.launch {
-            val api = KtorApiClient()
-            setUsers(api.getUsers(3))
+            setUsers(KtorApiClient.getUsers(1))
         }
     }
 
@@ -43,6 +43,7 @@ fun LoginForm() {
             placeholder = { Text("Entrez votre mot de passe...") },
             onValueChange = { password = it },
             value = password,
+            visualTransformation = PasswordVisualTransformation(),
             modifier = Modifier.fillMaxWidth()
         )
         ButtonSubmit(
