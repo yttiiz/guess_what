@@ -1,14 +1,13 @@
 package quiz.components.atoms
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import quiz.ui.theme.warningBackgroundColor
 
 @Composable
 fun TextFieldForm(
@@ -44,7 +43,7 @@ fun TextFieldForm(
             }
             Text(
                 text = if (value.isEmpty()) message else "",
-                color = Color.Red,
+                color = warningBackgroundColor,
                 modifier = Modifier
                     .fillMaxWidth()
             )

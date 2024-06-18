@@ -1,3 +1,5 @@
+package quiz.components.atoms
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer

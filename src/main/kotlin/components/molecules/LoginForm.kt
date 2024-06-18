@@ -1,3 +1,5 @@
+package quiz.components.molecules
+
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
@@ -5,8 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
-import quiz.components.atoms.TextFieldForm
-import quiz.components.molecules.UserCard
+import quiz.components.atoms.*
 import quiz.data.mongo.MongoClientConnexion
 import quiz.data.mongo.User
 
