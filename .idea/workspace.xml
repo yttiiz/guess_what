@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21ef4d8c-fa33-4d55-8063-a4fa5b5c665c" name="Changes" comment="" />
+    <list default="true" id="21ef4d8c-fa33-4d55-8063-a4fa5b5c665c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/data/mongo/MongoClientConnexion.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/data/mongo/User.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/App.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/molecules/LoginForm.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/molecules/LoginForm.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/molecules/UserCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/molecules/UserCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/data/remote/Users.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/data/remote/Users.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/utils/DateHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/utils/DateHandler.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +61,8 @@
       <list>
         <option value="Kotlin File" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Object" />
+        <option value="Kotlin Data Class" />
       </list>
     </option>
   </component>
@@ -72,20 +85,24 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
     "Gradle.Build quiz.executor": "Run",
     "Gradle.Download Sources.executor": "Run",
     "Gradle.Load Gradle Dependencies.executor": "Run",
     "Gradle.Upgrade Gradle wrapper.executor": "Run",
     "Gradle.desktop.executor": "Run",
     "Kotlin.MainKt.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/mnt/yz-store/programmation/kotlin/app/quiz",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.43422264",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+    "settings.editor.selected.configurable": "build.tools"
   },
   "keyToStringList": {
     "kotlin-gradle-user-dirs": [
@@ -98,11 +115,11 @@
       <recent name="$PROJECT_DIR$/src/main/resources/components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/main/kotlin" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/components/organisms" />
       <recent name="$PROJECT_DIR$/src/main/resources/drawable/icons" />
-      <recent name="$PROJECT_DIR$/src/main/kotlin/components/molecules" />
-      <recent name="$PROJECT_DIR$/src/main/kotlin/components/atoms" />
-      <recent name="$PROJECT_DIR$/src/main/kotlin/components" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="quiz.data.remote" />

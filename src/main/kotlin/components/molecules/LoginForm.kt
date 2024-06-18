@@ -10,8 +10,8 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import quiz.components.molecules.UserCard
-import quiz.data.remote.Users
-import quiz.data.remote.api.KtorApiClient
+import quiz.data.mongo.MongoClientConnexion
+import quiz.data.mongo.User
 
 @Composable
 fun LoginForm() {
@@ -19,11 +19,11 @@ fun LoginForm() {
     var password by remember { mutableStateOf("") }
 
     val coroutineScope = rememberCoroutineScope()
-    val (users, setUsers) = remember { mutableStateOf<Users?>(null) }
+    val (user, setUser) = remember { mutableStateOf<List<User>?>(null) }
 
     val getUsersOnClick: () -> Unit = {
         coroutineScope.launch {
-            setUsers(KtorApiClient.getUsers(1))
+            setUser(MongoClientConnexion.getUser(email))
         }
     }
 
@@ -51,10 +51,8 @@ fun LoginForm() {
             fetchData = getUsersOnClick
         )
 
-        if (users != null) {
-            for (user in users.users) {
-                UserCard(user)
-            }
+        if (!user.isNullOrEmpty()) {
+            UserCard(user.first())
         }
     }
 }

@@ -8,17 +8,12 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import coil3.ImageLoader
-import coil3.PlatformContext
-import coil3.annotation.ExperimentalCoilApi
-import coil3.request.ImageRequest
-import quiz.data.remote.User
+import quiz.data.mongo.User
 import quiz.ui.theme.secondaryBackgroundColor
 import quiz.utils.DateHandler
 
@@ -35,16 +30,6 @@ fun UserCard(user: User) {
 @Composable
 fun Header(user: User, spacing: Arrangement.HorizontalOrVertical) {
     Row {
-
-        LaunchedEffect(user) {
-            val imageLoader = ImageLoader(PlatformContext.INSTANCE)
-            val request = ImageRequest.Builder(context = PlatformContext.INSTANCE)
-                .data(user.image)
-                .build()
-            val image = imageLoader.execute(request).image
-
-            println(image)
-        }
         Column(
             modifier = Modifier
                 .border(
@@ -59,13 +44,13 @@ fun Header(user: User, spacing: Arrangement.HorizontalOrVertical) {
         ) {
             Image(
                 painter = painterResource("/drawable/image.jpeg"),
-                contentDescription = "image of ${user.firstName} ${user.lastName}",
+                contentDescription = "image of ${user.firstname} ${user.lastname}",
                 modifier = Modifier
                     .width(150.dp)
                     .clip(CircleShape)
             )
-            Text("${user.firstName} ${user.lastName}")
-            Text(DateHandler.getAge(user.birthDate))
+            Text("${user.firstname} ${user.lastname}")
+            Text(DateHandler.getAge(user.birth))
         }
     }
 }
@@ -82,9 +67,9 @@ fun Body(user: User) {
                 .padding(20.dp)
                 .fillMaxWidth()
         ) {
-            Text("Date de naissance : ${user.birthDate}")
+            Text("Date de naissance : ${DateHandler.getBirth(user.birth)}")
             Text("Email : ${user.email}")
-            Text("Numéro de téléphone : ${user.phone}")
+            Text("Métier : ${user.job}")
         }
     }
 }

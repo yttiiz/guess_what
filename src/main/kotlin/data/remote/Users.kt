@@ -1,6 +1,5 @@
 package quiz.data.remote
 
-
 import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
 

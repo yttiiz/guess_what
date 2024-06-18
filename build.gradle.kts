@@ -1,5 +1,8 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+
 val ktorVersion = "2.3.2"
+val coilVersion = "3.0.0-alpha06"
+val mongoDbVersion = "5.1.0"
 
 plugins {
     kotlin("jvm")
@@ -17,14 +20,28 @@ repositories {
 }
 
 dependencies {
+    // Ktor
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
     implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-client-android:$ktorVersion")
     implementation("io.ktor:ktor-client-json:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-    implementation("io.coil-kt.coil3:coil:3.0.0-alpha06")
-    implementation("io.coil-kt.coil3:coil-network-ktor:3.0.0-alpha06")
+
+    // Coil
+    implementation("io.coil-kt.coil3:coil:$coilVersion")
+    implementation("io.coil-kt.coil3:coil-network-ktor:$coilVersion")
+
+    // MongoDB
+    implementation("org.mongodb:mongodb-driver-kotlin-coroutine:$mongoDbVersion")
+    implementation("org.mongodb:bson-kotlinx:$mongoDbVersion")
+
+    // Dotenv
+    implementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
+
+    // Google Gson
     implementation("com.google.code.gson:gson:2.8.9")
+
+    // Compose basics
     implementation(compose.desktop.currentOs)
 }
 
