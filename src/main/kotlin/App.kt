@@ -8,7 +8,7 @@ import quiz.data.mongo.MongoClientConnexion
 @Preview
 fun App(name: String) {
     // Init Mongo connexion.
-    MongoClientConnexion.main()
+    MongoClientConnexion.init()
 
     // Display screen
     MaterialTheme {

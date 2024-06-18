@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.sp
 import quiz.ui.theme.*
 
 @Composable
-fun ButtonSubmit(text: String, fetchData: () -> Unit) {
+fun ButtonSubmit(textContent: String, fetchData: () -> Unit) {
     Button(
         shape = RoundedCornerShape(5.dp),
         contentPadding = PaddingValues(20.dp),
@@ -24,7 +24,7 @@ fun ButtonSubmit(text: String, fetchData: () -> Unit) {
         onClick = { fetchData() },
     ) {
         Text(
-            text = text,
+            text = textContent,
             fontSize = 16.sp,
             fontWeight = FontWeight(600)
         )

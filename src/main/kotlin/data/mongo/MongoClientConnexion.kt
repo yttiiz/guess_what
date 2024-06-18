@@ -26,7 +26,7 @@ object MongoClientConnexion {
         password = dotenv["MONGODB_PASSWORD"]
     }
 
-    fun main() {
+    fun init() {
         val connection = "mongodb+srv://$username:$password@atlascluster.mmc5tn8.mongodb.net/?retryWrites=true&w=majority&appName=AtlasCluster"
 
         val serverApi = ServerApi
