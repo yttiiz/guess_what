@@ -15,6 +15,7 @@ import quiz.data.mongo.User
 fun LoginForm() {
     var email by remember { mutableStateOf("") }
     var emailMessage by remember { mutableStateOf("") }
+    var emailSnapshot by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordMessage by remember { mutableStateOf("") }
 
@@ -22,10 +23,10 @@ fun LoginForm() {
     val (user, setUser) = remember { mutableStateOf<List<User>?>(null) }
 
     val getUsersOnClick: () -> Unit = {
-        val isFormValidationOk = email.isEmpty() || password.isEmpty()
+        val isFormValidationNotOk = email.isEmpty() || password.isEmpty()
         val getMessage: (str: String) -> String = { str -> "Vous devez renseigner $str." }
 
-        if (isFormValidationOk) {
+        if (isFormValidationNotOk) {
             if (email.isEmpty()) emailMessage = getMessage("une adresse email")
             if (password.isEmpty()) passwordMessage = getMessage("un mot de passe")
 
@@ -35,6 +36,8 @@ fun LoginForm() {
 
             setUser(MongoClientConnexion.getUser(email))
         }
+
+        emailSnapshot = email
     }
 
     Column(
@@ -66,7 +69,7 @@ fun LoginForm() {
                 Text(
                     modifier = Modifier.padding(10.dp),
                     color = Color.Red,
-                    text = (if (user != null) "Aucun utilisateur trouvé avec l'adresse : $email" else "")
+                    text = (if (user != null) "Aucun utilisateur trouvé avec l'adresse : $emailSnapshot" else "")
                 )
             }
         } else UserCard(user.first())

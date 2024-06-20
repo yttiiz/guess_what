@@ -4,6 +4,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import quiz.data.mongo.MongoClientConnexion
 import quiz.components.organisms.*
+import quiz.components.screens.HomeScreen
 
 @Composable
 @Preview
@@ -16,7 +17,7 @@ fun App(name: String) {
         Column(
         ) {
             Header(name)
-            HomeBody()
+            HomeScreen()
         }
     }
 }

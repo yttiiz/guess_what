@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import io.github.cdimascio.dotenv.dotenv
 import quiz.data.mongo.User
 import quiz.ui.theme.secondaryBackgroundColor
 import quiz.utils.DateHandler
@@ -42,6 +43,9 @@ fun Header(user: User, spacing: Arrangement.HorizontalOrVertical) {
             verticalArrangement = spacing,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            val host = dotenv().get("DATA_HOST")
+            val url = "$host/${user.photo}"
+
             Image(
                 painter = painterResource("/drawable/image.jpeg"),
                 contentDescription = "image of ${user.firstname} ${user.lastname}",
