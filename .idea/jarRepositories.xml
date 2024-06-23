@@ -51,5 +51,15 @@
       <option name="name" value="maven2" />
       <option name="url" value="https://repo.maven.apache.org/maven2/io/coil-kt/coil-compose/2.6.0/coil-compose-2.6.0.pom" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven2" />
+      <option name="name" value="maven2" />
+      <option name="url" value="https://maven.pkg:maven/io.coil-kt/coil-compose@2.6.0" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven2" />
+      <option name="name" value="maven2" />
+      <option name="url" value="https://repo1.maven.org/maven2/io/coil-kt/coil-compose-base/2.6.0/coil-compose-base-2.6.0.pom" />
+    </remote-repository>
   </component>
 </project>
