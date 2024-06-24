@@ -1,15 +1,18 @@
 package quiz.components.molecules
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import quiz.components.atoms.*
 import quiz.data.mongo.MongoClientConnexion
 import quiz.data.mongo.User
+import quiz.ui.theme.warningBackgroundColor
 
 @Composable
 fun LoginForm() {
@@ -18,11 +21,12 @@ fun LoginForm() {
     var emailSnapshot by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordMessage by remember { mutableStateOf("") }
+    var isPasswordIncorrect by remember { mutableStateOf(false) }
 
     val coroutineScope = rememberCoroutineScope()
     val (user, setUser) = remember { mutableStateOf<List<User>?>(null) }
 
-    val getUsersOnClick: () -> Unit = {
+    val handleUserVerification: () -> Unit = {
         val isFormValidationNotOk = email.isEmpty() || password.isEmpty()
         val getMessage: (str: String) -> String = { str -> "Vous devez renseigner $str." }
 
@@ -34,7 +38,10 @@ fun LoginForm() {
             if (emailMessage.isNotEmpty()) emailMessage = ""
             if (passwordMessage.isNotEmpty()) passwordMessage = ""
 
-            setUser(MongoClientConnexion.getUser(email))
+            val result = MongoClientConnexion.verifyUser(email, password)
+
+            setUser(result.first)
+            isPasswordIncorrect = result.second.contains("wrong password")
         }
 
         emailSnapshot = email
@@ -60,16 +67,20 @@ fun LoginForm() {
             isPasswordField = true
         )
         ButtonSubmit(
-            textContent = "Soumettre",
-            fetchData = getUsersOnClick
+            textContent = "Connexion",
+            onClick = handleUserVerification
         )
 
         if (user.isNullOrEmpty()) {
             Row {
                 Text(
                     modifier = Modifier.padding(10.dp),
-                    color = Color.Red,
-                    text = (if (user != null) "Aucun utilisateur trouvé avec l'adresse : $emailSnapshot" else "")
+                    color = warningBackgroundColor,
+                    text = (
+                        if (user != null) {
+                            if (isPasswordIncorrect) "Votre mot de passe est incorrect"
+                            else "Aucun utilisateur trouvé avec l'adresse : $emailSnapshot"
+                        } else "")
                 )
             }
         } else UserCard(user.first())

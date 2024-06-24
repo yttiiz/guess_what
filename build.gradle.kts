@@ -30,6 +30,9 @@ dependencies {
     implementation("org.mongodb:mongodb-driver-kotlin-coroutine:$mongoDbVersion")
     implementation("org.mongodb:bson-kotlinx:$mongoDbVersion")
 
+    // Bcrypt
+    implementation("com.ToxicBakery.library.bcrypt:bcrypt:1.0.9")
+
     // Dotenv
     implementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
 

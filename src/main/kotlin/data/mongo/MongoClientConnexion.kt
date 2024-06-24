@@ -9,6 +9,7 @@ import com.mongodb.kotlin.client.coroutine.MongoDatabase
 import io.github.cdimascio.dotenv.dotenv
 import kotlinx.coroutines.flow.toList
 import org.bson.Document
+import quiz.utils.CryptoHandler
 
 object MongoClientConnexion {
     private lateinit var client: MongoClient
@@ -40,10 +41,16 @@ object MongoClientConnexion {
         database = client.getDatabase("main")
     }
 
-    suspend fun getUser(email: String): List<User> {
-        return database
+    suspend fun verifyUser(email: String, password: String): Pair<List<User>, String> {
+        val user = database
             .getCollection<User>("users")
             .find(Document("email", email))
             .toList()
+
+        return if (user.isNotEmpty()) {
+            if (CryptoHandler.isPasswordOk(user[0].hash, password)) {
+                user to "password ok"
+            } else emptyList<User>() to "wrong password"
+        } else emptyList<User>() to "no user found"
     }
 }

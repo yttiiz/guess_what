@@ -20,16 +20,21 @@ import quiz.utils.ImageHandler
 
 @Composable
 fun UserCard(user: User) {
+    val host = dotenv().get("DATA_HOST")
     val spacing = Arrangement.spacedBy(10.dp)
 
     Column {
-        Header(user, spacing)
+        Header(user, spacing, host)
         Body(user)
     }
 }
 
 @Composable
-fun Header(user: User, spacing: Arrangement.HorizontalOrVertical) {
+fun Header(
+    user: User,
+    spacing: Arrangement.HorizontalOrVertical,
+    host: String
+) {
     Row {
         Column(
             modifier = Modifier
@@ -43,8 +48,6 @@ fun Header(user: User, spacing: Arrangement.HorizontalOrVertical) {
             verticalArrangement = spacing,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            val host = dotenv().get("DATA_HOST")
-
             Image(
                 bitmap = ImageHandler.loadFromUrl("$host/${user.photo}"),
                 contentDescription = "photo de ${user.firstname} ${user.lastname}",

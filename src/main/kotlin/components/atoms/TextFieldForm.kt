@@ -1,11 +1,15 @@
 package quiz.components.atoms
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import quiz.ui.theme.warningBackgroundColor
 
@@ -28,6 +32,18 @@ fun TextFieldForm(
                     value = value,
                     visualTransformation = PasswordVisualTransformation(),
                     modifier = Modifier.fillMaxWidth()
+                )
+                Spacer(modifier = Modifier.height(5.dp))
+                ClickableText(
+                    text = AnnotatedString(
+                        text = "mot de passe oublié ?",
+                        spanStyle = SpanStyle(
+                            textDecoration = TextDecoration.Underline
+                        )
+                    ),
+                    onClick = {
+                        //TODO implement logic here later
+                    },
                 )
             } else {
                 TextField(
