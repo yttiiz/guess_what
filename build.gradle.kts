@@ -1,7 +1,6 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 val ktorVersion = "2.3.2"
-val coilVersion = "2.6.0"
 val mongoDbVersion = "5.1.0"
 
 plugins {
@@ -26,9 +25,6 @@ dependencies {
     implementation("io.ktor:ktor-client-android:$ktorVersion")
     implementation("io.ktor:ktor-client-json:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-
-    // Coil
-    runtimeOnly("io.coil-kt:coil-compose:$coilVersion")
 
     // MongoDB
     implementation("org.mongodb:mongodb-driver-kotlin-coroutine:$mongoDbVersion")
