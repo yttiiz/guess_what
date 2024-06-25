@@ -8,7 +8,8 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.platform.Font
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import quiz.ui.theme.*
@@ -27,8 +28,8 @@ fun ButtonSubmit(textContent: String, onClick: () -> Unit) {
     ) {
         Text(
             text = textContent,
+            fontFamily = FontFamily(Font(montserratBold)),
             fontSize = 16.sp,
-            fontWeight = FontWeight(600)
         )
     }
 }

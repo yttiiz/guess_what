@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21ef4d8c-fa33-4d55-8063-a4fa5b5c665c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ui/theme/Fonts.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ui/theme/Type.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/App.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/atoms/ButtonSubmit.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/atoms/ButtonSubmit.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/atoms/TextFieldForm.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/atoms/TextFieldForm.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/molecules/LoginForm.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/molecules/LoginForm.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/screens/HomeScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/screens/HomeScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/data/mongo/MongoClientConnexion.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/data/mongo/MongoClientConnexion.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/ui/theme/Color.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/ui/theme/Color.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,10 +60,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
-        <option value="Kotlin File" />
         <option value="Kotlin Object" />
+        <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>

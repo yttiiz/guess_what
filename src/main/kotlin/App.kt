@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import quiz.components.organisms.Header
 import quiz.components.screens.HomeScreen
 import quiz.data.mongo.MongoClientConnexion
+import quiz.ui.theme.QuizTypography
 
 @Composable
 @Preview
@@ -13,7 +14,7 @@ fun App(name: String) {
     MongoClientConnexion.init()
 
     // Display screen
-    MaterialTheme {
+    MaterialTheme(typography = QuizTypography) {
         Column(
         ) {
             Header(name)

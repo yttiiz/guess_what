@@ -10,7 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.platform.Font
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
@@ -18,9 +20,7 @@ import quiz.components.atoms.ButtonSubmit
 import quiz.components.atoms.TextFieldForm
 import quiz.data.mongo.MongoClientConnexion
 import quiz.data.mongo.User
-import quiz.ui.theme.neutralBackgroundColor
-import quiz.ui.theme.primaryBackgroundColor
-import quiz.ui.theme.warningBackgroundColor
+import quiz.ui.theme.*
 
 @Composable
 fun LoginForm() {
@@ -69,19 +69,21 @@ fun LoginForm() {
         ) {
             Icon(
                 painter = painterResource("/drawable/icons/user.svg"),
-                contentDescription = "test",
-                tint = neutralBackgroundColor,
+                contentDescription = "user icon",
+                tint = neutralColor,
                 modifier = Modifier
                     .width(50.dp)
                     .height(50.dp)
             )
         }
         Text(
-            color = primaryBackgroundColor,
+            textAlign = TextAlign.Center,
+            color = neutralColor,
             text = "Connectez-vous !",
+            fontFamily = FontFamily(Font(montserratBold)),
             fontSize = 25.sp,
             lineHeight = 30.sp,
-            fontWeight = FontWeight.Bold
+            modifier = Modifier.fillMaxWidth()
         )
         TextFieldForm(
             label = "Email",

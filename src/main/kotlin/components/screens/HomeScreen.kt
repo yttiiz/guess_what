@@ -6,12 +6,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import quiz.components.molecules.LoginForm
-import quiz.ui.theme.neutralBackgroundColor
+import quiz.ui.theme.neutralColor
 
 @Composable
 fun HomeScreen() {
     Box(
-        modifier = Modifier.background(neutralBackgroundColor)
+        modifier = Modifier.background(neutralColor)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,

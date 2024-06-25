@@ -16,15 +16,17 @@ object MongoClientConnexion {
     private lateinit var database: MongoDatabase
     private var username: String
     private var password: String
+    private var host: String
 
     init {
         val dotenv = dotenv()
         username = dotenv["MONGODB_USERNAME"]
         password = dotenv["MONGODB_PASSWORD"]
+        host = dotenv["MONGODB_HOST"]
     }
 
     fun init() {
-        val connection = "mongodb+srv://$username:$password@atlascluster.mmc5tn8.mongodb.net/?retryWrites=true&w=majority&appName=AtlasCluster"
+        val connection = "mongodb+srv://$username:$password@$host/?retryWrites=true&w=majority&appName=AtlasCluster"
 
         val serverApi = ServerApi
             .builder()
