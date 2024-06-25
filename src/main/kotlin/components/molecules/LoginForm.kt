@@ -1,17 +1,25 @@
 package quiz.components.molecules
 
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
-import quiz.components.atoms.*
+import quiz.components.atoms.ButtonSubmit
+import quiz.components.atoms.TextFieldForm
 import quiz.data.mongo.MongoClientConnexion
 import quiz.data.mongo.User
+import quiz.ui.theme.neutralBackgroundColor
+import quiz.ui.theme.primaryBackgroundColor
 import quiz.ui.theme.warningBackgroundColor
 
 @Composable
@@ -49,8 +57,32 @@ fun LoginForm() {
 
     Column(
         verticalArrangement = Arrangement.spacedBy(15.dp),
-        modifier = Modifier.width(300.dp)
+        modifier = Modifier
+            .clip(shape = RoundedCornerShape(8.dp))
+            .background(Color.White)
+            .padding(40.dp)
+            .width(300.dp)
     ) {
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Icon(
+                painter = painterResource("/drawable/icons/user.svg"),
+                contentDescription = "test",
+                tint = neutralBackgroundColor,
+                modifier = Modifier
+                    .width(50.dp)
+                    .height(50.dp)
+            )
+        }
+        Text(
+            color = primaryBackgroundColor,
+            text = "Connectez-vous !",
+            fontSize = 25.sp,
+            lineHeight = 30.sp,
+            fontWeight = FontWeight.Bold
+        )
         TextFieldForm(
             label = "Email",
             placeholder = "Entrez votre email...",

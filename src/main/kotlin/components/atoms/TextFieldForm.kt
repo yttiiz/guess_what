@@ -1,16 +1,19 @@
 package quiz.components.atoms
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import quiz.ui.theme.primaryForegroundColor
 import quiz.ui.theme.warningBackgroundColor
 
 @Composable
@@ -44,6 +47,8 @@ fun TextFieldForm(
                     onClick = {
                         //TODO implement logic here later
                     },
+                    modifier = Modifier
+                        .fillMaxWidth()
                 )
             } else {
                 TextField(
