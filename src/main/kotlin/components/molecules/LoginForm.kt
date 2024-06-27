@@ -28,6 +28,8 @@ fun LoginForm(connected: () -> Unit, user: List<User>?, setUser: (List<User>?) -
     var emailSnapshot by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordMessage by remember { mutableStateOf("") }
+
+    var isFormHasErrors by remember { mutableStateOf(false) }
     var isPasswordIncorrect by remember { mutableStateOf(false) }
 
     val coroutineScope = rememberCoroutineScope()
@@ -49,7 +51,8 @@ fun LoginForm(connected: () -> Unit, user: List<User>?, setUser: (List<User>?) -
             setUser(result.first)
             isPasswordIncorrect = result.second.contains("wrong password")
 
-            if (!user.isNullOrEmpty() && !isPasswordIncorrect) connected()
+            if (result.first.isNotEmpty() && !isPasswordIncorrect) connected()
+            else isFormHasErrors = true
         }
 
         emailSnapshot = email
@@ -103,7 +106,7 @@ fun LoginForm(connected: () -> Unit, user: List<User>?, setUser: (List<User>?) -
             onClick = handleUserVerification
         )
 
-        if (user.isNullOrEmpty()) {
+        if (isFormHasErrors) {
             Row {
                 Text(
                     modifier = Modifier.padding(10.dp),

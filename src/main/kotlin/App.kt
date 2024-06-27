@@ -31,7 +31,7 @@ fun App(name: String) {
                 Text("Connected")
             } else {
                 ConnexionScreen(
-                    connected = { isUserConnected = !isUserConnected },
+                    connected = { isUserConnected = true },
                     user = user,
                     setUser = setUser
                 )
