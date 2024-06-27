@@ -4,35 +4,35 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.platform.Font
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
 import quiz.components.atoms.ButtonSubmit
 import quiz.components.atoms.TextFieldForm
 import quiz.data.mongo.MongoClientConnexion
 import quiz.data.mongo.User
-import quiz.ui.theme.*
+import quiz.ui.theme.neutralColor
+import quiz.ui.theme.warningBackgroundColor
 
 @Composable
-fun LoginForm() {
+fun LoginForm(connected: () -> Unit, user: List<User>?, setUser: (List<User>?) -> Unit) {
     var email by remember { mutableStateOf("") }
     var emailMessage by remember { mutableStateOf("") }
     var emailSnapshot by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordMessage by remember { mutableStateOf("") }
+
+    var isFormHasErrors by remember { mutableStateOf(false) }
     var isPasswordIncorrect by remember { mutableStateOf(false) }
 
     val coroutineScope = rememberCoroutineScope()
-    val (user, setUser) = remember { mutableStateOf<List<User>?>(null) }
 
     val handleUserVerification: () -> Unit = {
         val isFormValidationNotOk = email.isEmpty() || password.isEmpty()
@@ -50,6 +50,9 @@ fun LoginForm() {
 
             setUser(result.first)
             isPasswordIncorrect = result.second.contains("wrong password")
+
+            if (result.first.isNotEmpty() && !isPasswordIncorrect) connected()
+            else isFormHasErrors = true
         }
 
         emailSnapshot = email
@@ -80,9 +83,7 @@ fun LoginForm() {
             textAlign = TextAlign.Center,
             color = neutralColor,
             text = "Connectez-vous !",
-            fontFamily = FontFamily(Font(montserratBold)),
-            fontSize = 25.sp,
-            lineHeight = 30.sp,
+            style = MaterialTheme.typography.h3,
             modifier = Modifier.fillMaxWidth()
         )
         TextFieldForm(
@@ -105,18 +106,17 @@ fun LoginForm() {
             onClick = handleUserVerification
         )
 
-        if (user.isNullOrEmpty()) {
+        if (isFormHasErrors) {
             Row {
                 Text(
                     modifier = Modifier.padding(10.dp),
                     color = warningBackgroundColor,
                     text = (
-                        if (user != null) {
-                            if (isPasswordIncorrect) "Votre mot de passe est incorrect"
-                            else "Aucun utilisateur trouvé avec l'adresse : $emailSnapshot"
-                        } else "")
+                        if (isPasswordIncorrect) "Votre mot de passe est incorrect"
+                        else "Aucun utilisateur trouvé avec l'adresse : $emailSnapshot"
+                    )
                 )
             }
-        } else UserCard(user.first())
+        }
     }
 }

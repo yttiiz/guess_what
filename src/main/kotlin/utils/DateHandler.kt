@@ -1,6 +1,5 @@
 package quiz.utils
 
-import java.text.DateFormat
 import java.time.LocalDate
 import java.time.Period
 import java.time.format.DateTimeFormatter
