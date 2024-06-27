@@ -2,18 +2,20 @@ package quiz.components.organisms
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import quiz.components.atoms.Logo
+import quiz.data.mongo.User
 import quiz.ui.theme.primaryBackgroundColor
 
 /**
  * The main `header` of the application.
  */
 @Composable
-fun Header(logoName: String): Unit {
+fun Header(logoName: String, isConnected: Boolean, user: List<User>?): Unit {
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
@@ -27,5 +29,8 @@ fun Header(logoName: String): Unit {
             width = 40.0,
             height = 40.0,
         )
+        if (isConnected && !user.isNullOrEmpty()) {
+            Text("${user!!.first().firstname}")
+        }
     }
 }
