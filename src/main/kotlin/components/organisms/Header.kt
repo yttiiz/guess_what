@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import quiz.components.atoms.Logo
+import quiz.components.molecules.UserProfil
 import quiz.data.mongo.User
 import quiz.ui.theme.primaryBackgroundColor
 
@@ -17,7 +18,7 @@ import quiz.ui.theme.primaryBackgroundColor
 @Composable
 fun Header(logoName: String, isConnected: Boolean, user: List<User>?): Unit {
     Row(
-        horizontalArrangement = Arrangement.Center,
+        horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth()
@@ -29,8 +30,10 @@ fun Header(logoName: String, isConnected: Boolean, user: List<User>?): Unit {
             width = 40.0,
             height = 40.0,
         )
-        if (isConnected && !user.isNullOrEmpty()) {
-            Text("${user!!.first().firstname}")
+        Box {
+            if (isConnected) {
+                UserProfil(user!!.first())
+            }
         }
     }
 }

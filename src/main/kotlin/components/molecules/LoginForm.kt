@@ -112,10 +112,9 @@ fun LoginForm(connected: () -> Unit, user: List<User>?, setUser: (List<User>?) -
                     modifier = Modifier.padding(10.dp),
                     color = warningBackgroundColor,
                     text = (
-                        if (user != null) {
-                            if (isPasswordIncorrect) "Votre mot de passe est incorrect"
-                            else "Aucun utilisateur trouvé avec l'adresse : $emailSnapshot"
-                        } else "")
+                        if (isPasswordIncorrect) "Votre mot de passe est incorrect"
+                        else "Aucun utilisateur trouvé avec l'adresse : $emailSnapshot"
+                    )
                 )
             }
         }
