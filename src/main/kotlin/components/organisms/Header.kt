@@ -16,7 +16,12 @@ import quiz.ui.theme.primaryBackgroundColor
  * The main `header` of the application.
  */
 @Composable
-fun Header(logoName: String, isConnected: Boolean, user: List<User>?): Unit {
+fun Header(
+    logoName: String,
+    isConnected: Boolean,
+    user: List<User>?,
+    connected: () -> Unit,
+) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
@@ -32,7 +37,7 @@ fun Header(logoName: String, isConnected: Boolean, user: List<User>?): Unit {
         )
         Box {
             if (isConnected) {
-                UserProfil(user!!.first())
+                UserProfil(user!!.first(), connected)
             }
         }
     }
