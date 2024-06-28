@@ -8,6 +8,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
@@ -19,9 +20,11 @@ import androidx.compose.ui.text.platform.Font
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import io.github.cdimascio.dotenv.dotenv
 import quiz.ui.theme.montserratRegular
 import quiz.ui.theme.neutralColor
 import quiz.ui.theme.warningBackgroundColor
+
 
 @Composable
 fun TextFieldForm(
@@ -32,6 +35,8 @@ fun TextFieldForm(
     onChange: (String) -> Unit,
     isPasswordField: Boolean = false,
 ) {
+    val host = dotenv().get("DATA_HOST")
+    val uriHandler = LocalUriHandler.current
 
     Row {
         Column {
@@ -67,9 +72,7 @@ fun TextFieldForm(
                             textDecoration = TextDecoration.Underline
                         )
                     ),
-                    onClick = {
-                        //TODO implement logic here later
-                    },
+                    onClick = { uriHandler.openUri("$host/login") },
                     modifier = Modifier
                         .fillMaxWidth()
                 )
