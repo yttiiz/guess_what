@@ -3,6 +3,7 @@ package quiz.components.molecules
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.RadioButton
 import androidx.compose.material.RadioButtonDefaults
 import androidx.compose.material.Text
@@ -24,12 +25,27 @@ fun Questions(
     // Questions
     val questions by remember { mutableStateOf(items.iterator()) }
     val (currentQuestion, setCurrentQuestion) = remember { mutableStateOf(questions.next()) }
-    var isLastQuestionReached by remember { mutableStateOf(false) }
+    val (isLastQuestionReached, setIsLastQuestionReached) = remember { mutableStateOf(false) }
 
     // Responses
     val (selectedOption, setSelectedOption) = remember { mutableStateOf("") }
     val results by remember { mutableStateOf<MutableList<String>>(mutableListOf()) }
     var isOptionIsNotSet by remember { mutableStateOf(false) }
+
+    /**
+     * 1. Reset remember `selectedOption` to an empty string.
+     * 2. Check if it's last question to show __current question__ or __final result__.
+     */
+    val handleQuestions = {
+        //Reset option for next question.
+        setSelectedOption("")
+
+        if (questions.hasNext()) {
+            setCurrentQuestion(questions.next())
+        } else {
+            setIsLastQuestionReached(true)
+        }
+    }
 
     Column(
         verticalArrangement = Arrangement.spacedBy(10.dp),
@@ -47,6 +63,7 @@ fun Questions(
                 //============| Title |============//
                 Text(
                     text = currentQuestion.key,
+                    style = MaterialTheme.typography.h4
                 )
                 //============| Items |============//
                 Column {
@@ -84,7 +101,8 @@ fun Questions(
                         textContent = "Passer",
                         modifier = Modifier.width(200.dp),
                         onClick = {
-                            //TODO implements logic here
+                            results.add("no-response")
+                            handleQuestions()
                         }
                     )
                     ButtonSubmit(
@@ -97,15 +115,7 @@ fun Questions(
                             } else isOptionIsNotSet = false
 
                             results.add(selectedOption)
-
-                            //Reset option for next question.
-                            setSelectedOption("")
-
-                            if (questions.hasNext()) {
-                                setCurrentQuestion(questions.next())
-                            } else {
-                                isLastQuestionReached = true
-                            }
+                            handleQuestions()
                         }
                     )
                 }
