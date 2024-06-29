@@ -28,16 +28,15 @@ fun App(name: String) {
                 user = user,
                 connected = handleUserConnexion
             )
-            HomeScreen()
-//            if (isUserConnected) {
-//                HomeScreen()
-//            } else {
-//                ConnexionScreen(
-//                    connected = handleUserConnexion,
-//                    user = user,
-//                    setUser = setUser
-//                )
-//            }
+            if (isUserConnected) {
+                HomeScreen()
+            } else {
+                ConnexionScreen(
+                    connected = handleUserConnexion,
+                    user = user,
+                    setUser = setUser
+                )
+            }
         }
     }
 }

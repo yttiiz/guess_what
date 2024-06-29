@@ -88,7 +88,7 @@ fun Questions(
                 }
                 if (isOptionIsNotSet) {
                     Text(
-                        text = "Vous devez choisir une option !",
+                        text = "Vous devez choisir une réponse !",
                         color = warningBackgroundColor,
                         modifier = Modifier.padding(bottom = 20.dp)
                     )
@@ -106,7 +106,7 @@ fun Questions(
                         }
                     )
                     ButtonSubmit(
-                        textContent = "Question Suivante",
+                        textContent = "Question suivante",
                         modifier = Modifier.width(300.dp),
                         onClick = {
                             if (selectedOption.isEmpty()) {
