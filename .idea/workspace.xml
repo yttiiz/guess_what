@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21ef4d8c-fa33-4d55-8063-a4fa5b5c665c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/App.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/molecules/Questions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/molecules/Questions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/screens/HomeScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/screens/HomeScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/data/mongo/MongoClientConnexion.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/data/mongo/MongoClientConnexion.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/molecules/LoginForm.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/molecules/Questions.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/organisms/LoginForm.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/organisms/LoginForm.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/organisms/Questions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/organisms/Questions.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

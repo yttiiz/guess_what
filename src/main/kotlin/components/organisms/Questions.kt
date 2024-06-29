@@ -1,4 +1,4 @@
-package quiz.components.molecules
+package quiz.components.organisms
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import quiz.components.atoms.ButtonDismiss
 import quiz.components.atoms.ButtonSubmit
+import quiz.components.molecules.ResultsCard
 import quiz.ui.theme.primaryForegroundColor
 import quiz.ui.theme.warningBackgroundColor
 
