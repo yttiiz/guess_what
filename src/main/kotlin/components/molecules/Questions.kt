@@ -58,7 +58,7 @@ fun Questions(
     ) {
         Column {
             if (isLastQuestionReached) {
-                Text("Fin du questionnaire")
+                ResultsCard(results)
             } else {
                 //============| Title |============//
                 Text(
