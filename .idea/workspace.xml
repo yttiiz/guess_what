@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21ef4d8c-fa33-4d55-8063-a4fa5b5c665c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/molecules/Question.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/molecules/Question.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/screens/HomeScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/screens/HomeScreen.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/components/atoms/ButtonBase.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/components/atoms/ButtonDisMiss.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/components/molecules/Questions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/atoms/ButtonSubmit.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/atoms/ButtonSubmit.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/molecules/Question.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
