@@ -1,4 +1,4 @@
-package quiz.components.molecules
+package quiz.components.organisms
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*

@@ -23,6 +23,11 @@ val QuizTypography = Typography(
         lineHeight = 30.sp,
         fontFamily = FontFamily(Font(montserratBold))
     ),
+    h4 = TextStyle(
+        fontSize = 18.sp,
+        lineHeight = 26.sp,
+        fontFamily = FontFamily(Font(montserratBold))
+    ),
     body1 = TextStyle(
         fontSize = 16.sp
     )
