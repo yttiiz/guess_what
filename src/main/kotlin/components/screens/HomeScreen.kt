@@ -4,22 +4,30 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.launch
+import quiz.components.molecules.LoadingCard
 import quiz.components.organisms.Questions
+import quiz.data.mongo.MongoClientConnexion
+import quiz.data.mongo.Question
 import quiz.ui.theme.neutralColor
 import quiz.ui.theme.primaryBackgroundColor
 
 @Composable
 fun HomeScreen() {
-    val items = mapOf(
-        "Quelle est la capitale de la France ?" to listOf("Marseille", "Lyon", "Paris", "Lille"),
-        "Combien de départements, il y a-t-il en Ile-de-France ?" to listOf("5", "7", "2", "4"),
-        "Quel est le nombre d'habitants en France ?" to listOf("48 580 148", "72 150 014", "82 485 485", "44 152 987")
-    )
+    var rawQuestions by remember { mutableStateOf<List<Question>?>(null) }
+    var isLoading by remember { mutableStateOf(true) }
+
+    val coroutineScope = rememberCoroutineScope()
+
+    coroutineScope.launch {
+        rawQuestions = MongoClientConnexion.getQuestions()
+        isLoading = rawQuestions.isNullOrEmpty()
+    }
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -38,6 +46,10 @@ fun HomeScreen() {
                 modifier = Modifier.fillMaxWidth()
             )
         }
-        Questions(items)
+        if (isLoading) {
+            LoadingCard()
+        } else {
+            Questions(rawQuestions as List<Question>)
+        }
     }
 }

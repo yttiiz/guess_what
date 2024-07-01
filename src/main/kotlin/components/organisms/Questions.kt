@@ -16,15 +16,20 @@ import androidx.compose.ui.unit.dp
 import quiz.components.atoms.ButtonDismiss
 import quiz.components.atoms.ButtonSubmit
 import quiz.components.molecules.ResultsCard
+import quiz.data.mongo.Question
 import quiz.ui.theme.primaryForegroundColor
 import quiz.ui.theme.warningBackgroundColor
 
+typealias QuestionType = MutableMap.MutableEntry<String, List<String>>
+
 @Composable
-fun Questions(
-    items: Map<String, List<String>>,
-) {
+fun Questions(rawQuestions: List<Question>) {
     // Questions
-    val questions by remember { mutableStateOf(items.iterator()) }
+    val questions by remember { mutableStateOf<Iterator<QuestionType>>(rawQuestions
+        .fold<Question, MutableMap<String, List<String>>>(mutableMapOf()) { acc, question ->
+            acc[question.question.title] = question.question.propositions
+            acc
+        }.iterator()) }
     val (currentQuestion, setCurrentQuestion) = remember { mutableStateOf(questions.next()) }
     val (isLastQuestionReached, setIsLastQuestionReached) = remember { mutableStateOf(false) }
 

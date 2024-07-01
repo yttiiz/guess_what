@@ -13,7 +13,8 @@ import quiz.utils.CryptoHandler
 
 object MongoClientConnexion {
     private lateinit var client: MongoClient
-    private lateinit var database: MongoDatabase
+    private lateinit var mainDB: MongoDatabase
+    private lateinit var quizDB: MongoDatabase
     private var username: String
     private var password: String
     private var host: String
@@ -40,11 +41,12 @@ object MongoClientConnexion {
             .build()
 
         client = MongoClient.create(mongoClientSettings)
-        database = client.getDatabase("main")
+        mainDB = client.getDatabase("main")
+        quizDB = client.getDatabase("quiz")
     }
 
     suspend fun verifyUser(email: String, password: String): Pair<List<User>, String> {
-        val user = database
+        val user = mainDB
             .getCollection<User>("users")
             .find(Document("email", email))
             .toList()
@@ -54,5 +56,12 @@ object MongoClientConnexion {
                 user to "password ok"
             } else emptyList<User>() to "wrong password"
         } else emptyList<User>() to "no user found"
+    }
+
+    suspend fun getQuestions(): List<Question> {
+        return quizDB
+            .getCollection<Question>("series_001")
+            .find()
+            .toList()
     }
 }
