@@ -2,11 +2,14 @@ package quiz.components.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
@@ -46,10 +49,20 @@ fun HomeScreen() {
                 modifier = Modifier.fillMaxWidth()
             )
         }
-        if (isLoading) {
-            LoadingCard()
-        } else {
-            Questions(rawQuestions as List<Question>)
+        Column(
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+            modifier = Modifier
+                .clip(shape = RoundedCornerShape(8.dp))
+                .background(Color.White)
+                .padding(40.dp)
+                .width(800.dp)
+                .height(600.dp)
+        ) {
+            if (isLoading) {
+                LoadingCard()
+            } else {
+                Questions(rawQuestions as List<Question>)
+            }
         }
     }
 }
