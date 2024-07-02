@@ -1,6 +1,12 @@
 # ![favicon](./src/main/resources/drawable/icons/yz_logo.svg) Quiz Game
 
 This desktop application is my __fist project__ using `Kotlin` and its ecosystem.
+It's a simple __quiz game__ to check anybody knowledge on a particular subject.
+
+### Scenario
+1. First user have to sign in
+2. Then answer the questions
+3. Finally, his score will be displayed with an appreciation
 
 ### Specifications
 
