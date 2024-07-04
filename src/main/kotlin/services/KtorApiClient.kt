@@ -1,4 +1,4 @@
-package quiz.data.remote.api
+package quiz.services
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.*

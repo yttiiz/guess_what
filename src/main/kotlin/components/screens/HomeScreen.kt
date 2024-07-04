@@ -16,7 +16,7 @@ import io.github.cdimascio.dotenv.dotenv
 import kotlinx.coroutines.launch
 import quiz.components.molecules.LoadingCard
 import quiz.components.organisms.Questions
-import quiz.data.mongo.MongoClientConnexion
+import quiz.services.MongoClientConnexion
 import quiz.data.mongo.Question
 import quiz.ui.theme.neutralColor
 import quiz.ui.theme.primaryBackgroundColor

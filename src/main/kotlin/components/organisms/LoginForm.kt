@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import quiz.components.atoms.ButtonSubmit
 import quiz.components.atoms.TextFieldForm
-import quiz.data.mongo.MongoClientConnexion
+import quiz.services.MongoClientConnexion
 import quiz.data.mongo.User
 import quiz.ui.theme.neutralColor
 import quiz.ui.theme.warningBackgroundColor

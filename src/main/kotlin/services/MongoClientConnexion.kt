@@ -1,4 +1,4 @@
-package quiz.data.mongo
+package quiz.services
 
 import com.mongodb.ConnectionString
 import com.mongodb.MongoClientSettings
@@ -9,6 +9,8 @@ import com.mongodb.kotlin.client.coroutine.MongoDatabase
 import io.github.cdimascio.dotenv.dotenv
 import kotlinx.coroutines.flow.toList
 import org.bson.Document
+import quiz.data.mongo.Question
+import quiz.data.mongo.User
 import quiz.utils.CryptoHandler
 
 object MongoClientConnexion {

@@ -2,8 +2,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import java.awt.Dimension
+import quiz.App
 
 const val APP_NAME = "Quiz Game"
+
 fun main() = application {
     Window(
         icon = painterResource("/drawable/icons/yz_logo.svg"),

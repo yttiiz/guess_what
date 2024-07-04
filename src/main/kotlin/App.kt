@@ -1,3 +1,5 @@
+package quiz
+
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme
@@ -5,7 +7,7 @@ import androidx.compose.runtime.*
 import quiz.components.organisms.Header
 import quiz.components.screens.ConnexionScreen
 import quiz.components.screens.HomeScreen
-import quiz.data.mongo.MongoClientConnexion
+import quiz.services.MongoClientConnexion
 import quiz.data.mongo.User
 import quiz.ui.theme.QuizTypography
 
