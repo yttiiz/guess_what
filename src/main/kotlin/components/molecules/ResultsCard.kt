@@ -44,7 +44,6 @@ fun ResultsCard(
      * Returns an __appreciation__ based on a given score.
      */
     val appreciation = { score: String ->
-        println(score)
         val scoreInt = if (score.length == 1) score.toInt() else score.slice(0..1).toInt()
 
         when(scoreInt) {
@@ -55,7 +54,7 @@ fun ResultsCard(
             10, 11 -> "Passable"
             8, 9 -> "Moyen"
             6, 7 -> "Très moyen"
-            else -> "A revoir !"
+            else -> "A revoir"
         }
     }
 
@@ -81,12 +80,13 @@ fun ResultsCard(
         ) {
             Text(
                 text = buildAnnotatedString {
-                    append("Votre score final est de ")
+                    append("Votre score est de ")
                     withStyle(
                         style = SpanStyle(color = secondaryBackgroundColor)
                     ) {
                         append("${score}/20")
                     }
+                    append(" !")
                 },
                 style = MaterialTheme.typography.h3,
                 color = primaryBackgroundColor

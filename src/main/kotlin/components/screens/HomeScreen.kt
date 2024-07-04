@@ -12,6 +12,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import io.github.cdimascio.dotenv.dotenv
 import kotlinx.coroutines.launch
 import quiz.components.molecules.LoadingCard
 import quiz.components.organisms.Questions
@@ -24,7 +25,7 @@ import quiz.ui.theme.primaryBackgroundColor
 fun HomeScreen() {
     var rawQuestions by remember { mutableStateOf<List<Question>?>(null) }
     var isLoading by remember { mutableStateOf(true) }
-
+    val quizTitle = dotenv().get("QUIZ_TITLE")
     val coroutineScope = rememberCoroutineScope()
 
     coroutineScope.launch {
@@ -44,9 +45,9 @@ fun HomeScreen() {
             Text(
                 textAlign = TextAlign.Center,
                 color = primaryBackgroundColor,
-                text = "Testez vos connaissances !",
+                text = "Testez vos connaissances sur $quizTitle !",
                 style = MaterialTheme.typography.h2,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth().padding(top = 20.dp)
             )
         }
         Column(

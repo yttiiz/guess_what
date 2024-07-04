@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,14 +18,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.platform.Font
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import io.github.cdimascio.dotenv.dotenv
 import quiz.data.mongo.User
-import quiz.ui.theme.montserratBold
-import quiz.ui.theme.neutralColor
-import quiz.ui.theme.primaryForegroundColor
+import quiz.ui.theme.*
 import quiz.utils.ImageHandler
 import java.time.LocalTime
 
@@ -51,19 +54,17 @@ fun UserProfil(user: User, connected: () -> Unit) {
                 tint = neutralColor,
             )
         }
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(5.dp),
-        ) {
-            Text(
-                text = greet,
-                color = primaryForegroundColor
-            )
-            Text(
-                text = user.firstname,
-                color = primaryForegroundColor,
-                fontFamily = FontFamily(Font(montserratBold))
-            )
-        }
+        Text(
+            text = buildAnnotatedString {
+                append("$greet ")
+                withStyle(
+                    style = SpanStyle(fontFamily = FontFamily(Font(montserratBold)))
+                ) {
+                    append(user.firstname)
+                }
+            },
+            color = primaryForegroundColor
+        )
         Image(
             bitmap = ImageHandler.loadFromUrl("$host/${user.photo}"),
             contentDescription = "photo de ${user.firstname} ${user.lastname}",
