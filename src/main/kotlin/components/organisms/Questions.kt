@@ -19,11 +19,12 @@ import quiz.ui.theme.warningBackgroundColor
 typealias QuestionType = MutableMap.MutableEntry<String, List<String>>
 
 @Composable
-fun Questions(rawQuestions: List<Question>) {
+fun Questions(rawQuestions: List<Question>, userName: String) {
     // Questions
     val questions by remember { mutableStateOf<Iterator<QuestionType>>(rawQuestions
-        .fold<Question, MutableMap<String, List<String>>>(mutableMapOf()) { acc, question ->
-            acc[question.question.title] = question.question.propositions
+        .foldIndexed<Question, MutableMap<String, List<String>>>(mutableMapOf()) { index, acc, question ->
+            val key = "${index + 1}/${rawQuestions.size} - ${question.question.title}"
+            acc[key] = question.question.propositions
             acc
         }.iterator()) }
     val (currentQuestion, setCurrentQuestion) = remember { mutableStateOf(questions.next()) }
@@ -54,7 +55,7 @@ fun Questions(rawQuestions: List<Question>) {
 
     Column {
         if (isLastQuestionReached) {
-            ResultsCard(results, correction)
+            ResultsCard(results, correction, userName)
         } else {
             //============| Title |============//
             Text(

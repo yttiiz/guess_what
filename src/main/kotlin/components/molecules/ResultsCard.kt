@@ -18,7 +18,8 @@ import quiz.ui.theme.secondaryBackgroundColor
 @Composable
 fun ResultsCard(
     results: MutableList<String>,
-    correction: List<String>
+    correction: List<String>,
+    userName: String
 ) {
     val givenResponses = results.filter { it != "no-response" }
     val givenResponsesCount = givenResponses.size
@@ -80,7 +81,7 @@ fun ResultsCard(
         ) {
             Text(
                 text = buildAnnotatedString {
-                    append("Votre score est de ")
+                    append("$userName, votre score est de ")
                     withStyle(
                         style = SpanStyle(color = secondaryBackgroundColor)
                     ) {
