@@ -31,7 +31,7 @@ fun App(name: String) {
                 connected = handleUserConnexion
             )
             if (isUserConnected) {
-                HomeScreen()
+                HomeScreen(user = user as List<User>)
             } else {
                 ConnexionScreen(
                     connected = handleUserConnexion,

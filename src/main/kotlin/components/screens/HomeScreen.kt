@@ -18,11 +18,12 @@ import quiz.components.molecules.LoadingCard
 import quiz.components.organisms.Questions
 import quiz.services.MongoClientConnexion
 import quiz.data.mongo.Question
+import quiz.data.mongo.User
 import quiz.ui.theme.neutralColor
 import quiz.ui.theme.primaryBackgroundColor
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(user: List<User>) {
     var rawQuestions by remember { mutableStateOf<List<Question>?>(null) }
     var isLoading by remember { mutableStateOf(true) }
     val quizTitle = dotenv().get("QUIZ_TITLE")
@@ -62,7 +63,10 @@ fun HomeScreen() {
             if (isLoading) {
                 LoadingCard()
             } else {
-                Questions(rawQuestions as List<Question>)
+                Questions(
+                    rawQuestions = rawQuestions as List<Question>,
+                    userName = user.first().firstname
+                )
             }
         }
     }
