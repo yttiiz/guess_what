@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="21ef4d8c-fa33-4d55-8063-a4fa5b5c665c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/App.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/molecules/ResultsCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/molecules/ResultsCard.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/organisms/Questions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/organisms/Questions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/components/screens/HomeScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/components/screens/HomeScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +105,7 @@
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;show-correction-details&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/yttiiz/exercism/kotlin/scrabble-score&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Dependencies&quot;,

@@ -35,9 +35,6 @@ fun Questions(rawQuestions: List<Question>, userName: String) {
     val results by remember { mutableStateOf<MutableList<String>>(mutableListOf()) }
     var isOptionIsNotSet by remember { mutableStateOf(false) }
 
-    // Result (expected answers)
-    val correction = rawQuestions.map { it.correction }
-
     /**
      * 1. Reset remember `selectedOption` to an empty string.
      * 2. Check if it's last question to show __current question__ or __final result__.
@@ -55,7 +52,7 @@ fun Questions(rawQuestions: List<Question>, userName: String) {
 
     Column {
         if (isLastQuestionReached) {
-            ResultsCard(results, correction, userName)
+            ResultsCard(results, rawQuestions, userName)
         } else {
             //============| Title |============//
             Text(

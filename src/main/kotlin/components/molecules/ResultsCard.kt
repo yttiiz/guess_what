@@ -2,30 +2,29 @@ package quiz.components.molecules
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import quiz.ui.theme.primaryBackgroundColor
-import quiz.ui.theme.secondaryBackgroundColor
+import quiz.components.atoms.RowCorrection
+import quiz.components.atoms.RowResult
+import quiz.data.mongo.Question
 
 @Composable
 fun ResultsCard(
     results: MutableList<String>,
-    correction: List<String>,
+    rawQuestions: List<Question>,
     userName: String
 ) {
     val givenResponses = results.filter { it != "no-response" }
     val givenResponsesCount = givenResponses.size
     val totalResponsesCount = results.size
 
-    val basedScore = givenResponses.foldIndexed(0) { index, acc, s ->
+    // Result (expected answers)
+    val correction = rawQuestions.map { it.correction }
+    val questionsTitle = rawQuestions.map { it.question.title }
+
+    val basedScore = results.foldIndexed(0) { index, acc, s ->
         if (s == correction[index]) acc + 1 else acc
     }
 
@@ -48,7 +47,7 @@ fun ResultsCard(
         val scoreInt = if (score.length == 1) score.toInt() else score.slice(0..1).toInt()
 
         when(scoreInt) {
-            18, 19, 20 -> "Félicitations"
+            in 18..20 -> "Félicitations"
             16, 17 -> "Très bien"
             14, 15 -> "Bien"
             12, 13 -> "Assez bien"
@@ -75,35 +74,15 @@ fun ResultsCard(
                 if (givenResponsesCount > 1) "s" else ""
             } sur $totalResponsesCount."
         )
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(20.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = buildAnnotatedString {
-                    append("$userName, votre score est de ")
-                    withStyle(
-                        style = SpanStyle(color = secondaryBackgroundColor)
-                    ) {
-                        append("${score}/20")
-                    }
-                    append(" !")
-                },
-                style = MaterialTheme.typography.h3,
-                color = primaryBackgroundColor
-            )
-            Text(text = buildAnnotatedString {
-                append("Appréciation : ")
-                withStyle(
-                    style = SpanStyle(fontWeight = FontWeight.Bold)
-                ) {
-                    append(appreciation(score))
-                }
-                append(" !")
-                toAnnotatedString()
-            },
-                color = primaryBackgroundColor
-            )
-        }
+        RowResult(
+            userName,
+            score,
+            appreciation
+        )
+        RowCorrection(
+            questionsTitle,
+            correction,
+            results
+        )
     }
 }
