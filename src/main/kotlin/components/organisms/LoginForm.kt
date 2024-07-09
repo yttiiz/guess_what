@@ -22,7 +22,7 @@ import quiz.ui.theme.neutralColor
 import quiz.ui.theme.warningBackgroundColor
 
 @Composable
-fun LoginForm(connected: () -> Unit, user: List<User>?, setUser: (List<User>?) -> Unit) {
+fun LoginForm(connected: () -> Unit, setUser: (List<User>?) -> Unit) {
     var email by remember { mutableStateOf("") }
     var emailMessage by remember { mutableStateOf("") }
     var emailSnapshot by remember { mutableStateOf("") }

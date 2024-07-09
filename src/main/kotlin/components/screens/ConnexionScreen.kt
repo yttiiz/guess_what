@@ -10,7 +10,7 @@ import quiz.data.mongo.User
 import quiz.ui.theme.neutralColor
 
 @Composable
-fun ConnexionScreen(connected: () -> Unit, user: List<User>?, setUser: (List<User>?) -> Unit) {
+fun ConnexionScreen(connected: () -> Unit, setUser: (List<User>?) -> Unit) {
     Box(
         modifier = Modifier.background(neutralColor)
     ) {
@@ -23,7 +23,6 @@ fun ConnexionScreen(connected: () -> Unit, user: List<User>?, setUser: (List<Use
         ) {
             LoginForm(
                 connected = connected,
-                user = user,
                 setUser = setUser,
             )
         }

@@ -7,8 +7,8 @@ import androidx.compose.runtime.*
 import quiz.components.organisms.Header
 import quiz.components.screens.ConnexionScreen
 import quiz.components.screens.HomeScreen
-import quiz.services.MongoClientConnexion
 import quiz.data.mongo.User
+import quiz.services.MongoClientConnexion
 import quiz.ui.theme.QuizTypography
 
 @Composable
@@ -35,7 +35,6 @@ fun App(name: String) {
             } else {
                 ConnexionScreen(
                     connected = handleUserConnexion,
-                    user = user,
                     setUser = setUser
                 )
             }
