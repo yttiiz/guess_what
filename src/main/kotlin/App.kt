@@ -7,8 +7,8 @@ import androidx.compose.runtime.*
 import quiz.components.organisms.Header
 import quiz.components.screens.ConnexionScreen
 import quiz.components.screens.HomeScreen
+import quiz.data.UserViewModel
 import quiz.services.MongoClientConnexion
-import quiz.data.mongo.User
 import quiz.ui.theme.QuizTypography
 
 @Composable
@@ -17,7 +17,11 @@ fun App(name: String) {
     // Init Mongo connexion.
     MongoClientConnexion.init()
 
-    val (user, setUser) = remember { mutableStateOf<List<User>?>(null) }
+    // Init User and its ViewModel
+    val userModel = UserViewModel()
+    val userState = userModel.user.collectAsState()
+    val user by remember { userState }
+
     var isUserConnected by remember { mutableStateOf(false) }
     val handleUserConnexion = { isUserConnected = !isUserConnected }
 
@@ -31,12 +35,11 @@ fun App(name: String) {
                 connected = handleUserConnexion
             )
             if (isUserConnected) {
-                HomeScreen(user = user as List<User>)
+                HomeScreen(user)
             } else {
                 ConnexionScreen(
                     connected = handleUserConnexion,
-                    user = user,
-                    setUser = setUser
+                    viewModel = userModel
                 )
             }
         }

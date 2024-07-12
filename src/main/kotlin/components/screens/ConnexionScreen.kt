@@ -6,11 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import quiz.components.organisms.LoginForm
-import quiz.data.mongo.User
+import quiz.data.UserViewModel
 import quiz.ui.theme.neutralColor
 
 @Composable
-fun ConnexionScreen(connected: () -> Unit, user: List<User>?, setUser: (List<User>?) -> Unit) {
+fun ConnexionScreen(connected: () -> Unit, viewModel: UserViewModel) {
     Box(
         modifier = Modifier.background(neutralColor)
     ) {
@@ -23,8 +23,7 @@ fun ConnexionScreen(connected: () -> Unit, user: List<User>?, setUser: (List<Use
         ) {
             LoginForm(
                 connected = connected,
-                user = user,
-                setUser = setUser,
+                viewModel = viewModel
             )
         }
     }
