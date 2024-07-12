@@ -42,6 +42,9 @@ dependencies {
     // Coroutines Android
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 
+    // ViewModel
+    implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
+
     // Compose basics
     implementation(compose.desktop.currentOs)
 }
