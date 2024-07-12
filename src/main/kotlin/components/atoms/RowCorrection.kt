@@ -2,6 +2,8 @@ package quiz.components.atoms
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -11,7 +13,9 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import quiz.ui.theme.*
+import quiz.ui.theme.primaryBackgroundColor
+import quiz.ui.theme.successBackgroundColor
+import quiz.ui.theme.warningBackgroundColor
 
 @Composable
 fun RowCorrection(
@@ -31,7 +35,8 @@ fun RowCorrection(
         }
         Row {
             Column(
-                verticalArrangement = Arrangement.spacedBy(10.dp)
+                verticalArrangement = Arrangement.spacedBy(10.dp),
+                modifier = Modifier.verticalScroll(rememberScrollState())
             ) {
                 for (i in correction.indices) {
                     val icon = { code: Int -> String(Character.toChars(code)) }
@@ -44,15 +49,14 @@ fun RowCorrection(
                         append("${i + 1} - ${questionsTitle[i]}\n")
                         withStyle(
                             style = SpanStyle(
-                            fontWeight = FontWeight.Bold,
-                            color = primaryBackgroundColor
+                                fontWeight = FontWeight.Bold,
+                                color = primaryBackgroundColor
                             )
                         ) {
                             append(correction[i])
                         }
                         append(" • votre réponse : ")
-                        withStyle(style = SpanStyle(color = color)
-                        ) {
+                        withStyle(style = SpanStyle(color = color)) {
                             append(userResponse)
                         }
                         append(" $sign")
