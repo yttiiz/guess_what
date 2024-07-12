@@ -16,13 +16,13 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import quiz.components.atoms.ButtonSubmit
 import quiz.components.atoms.TextFieldForm
+import quiz.data.UserViewModel
 import quiz.services.MongoClientConnexion
-import quiz.data.mongo.User
 import quiz.ui.theme.neutralColor
 import quiz.ui.theme.warningBackgroundColor
 
 @Composable
-fun LoginForm(connected: () -> Unit, setUser: (List<User>?) -> Unit) {
+fun LoginForm(connected: () -> Unit, viewModel: UserViewModel) {
     var email by remember { mutableStateOf("") }
     var emailMessage by remember { mutableStateOf("") }
     var emailSnapshot by remember { mutableStateOf("") }
@@ -48,7 +48,7 @@ fun LoginForm(connected: () -> Unit, setUser: (List<User>?) -> Unit) {
 
             val result = MongoClientConnexion.verifyUser(email, password)
 
-            setUser(result.first)
+            viewModel.setUser(result.first)
             isPasswordIncorrect = result.second.contains("wrong password")
 
             if (result.first.isNotEmpty() && !isPasswordIncorrect) connected()

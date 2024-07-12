@@ -25,7 +25,6 @@ import quiz.ui.theme.montserratRegular
 import quiz.ui.theme.neutralColor
 import quiz.ui.theme.warningBackgroundColor
 
-
 @Composable
 fun TextFieldForm(
     label: String,
@@ -73,8 +72,7 @@ fun TextFieldForm(
                         )
                     ),
                     onClick = { uriHandler.openUri("$host/login") },
-                    modifier = Modifier
-                        .fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth()
                 )
             } else {
                 TextField(
