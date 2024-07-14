@@ -6,7 +6,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,7 +23,6 @@ import quiz.utils.ImageHandler
 @Composable
 fun UserCard(user: User, closeDialog: () -> Unit) {
     val host = dotenv().get("DATA_HOST")
-    val spacing = Arrangement.spacedBy(10.dp)
 
     Column(
         modifier = Modifier
@@ -34,16 +32,25 @@ fun UserCard(user: User, closeDialog: () -> Unit) {
                 shape = RoundedCornerShape(15.dp),
             )
     ) {
-        Header(user, spacing, host)
-        Body(user)
-        Footer(closeDialog)
+        Header(user, host)
+        Column(
+            verticalArrangement = Arrangement.spacedBy(20.dp),
+            modifier = Modifier
+                .background(
+                    color = secondaryBackgroundColor,
+                    shape = RoundedCornerShape(0.dp, 0.dp, 15.dp, 15.dp)
+                )
+                .padding(20.dp)
+        ) {
+            Body(user)
+            Footer(closeDialog)
+        }
     }
 }
 
 @Composable
 fun Header(
     user: User,
-    spacing: Arrangement.HorizontalOrVertical,
     host: String
 ) {
     Row {
@@ -56,7 +63,7 @@ fun Header(
                 )
                 .padding(20.dp)
                 .fillMaxWidth(),
-            verticalArrangement = spacing,
+            verticalArrangement = Arrangement.spacedBy(10.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
@@ -74,13 +81,7 @@ fun Header(
 fun Body(user: User) {
     Row {
         Column(
-            modifier = Modifier
-                .background(
-                    color = secondaryBackgroundColor,
-                    shape = RoundedCornerShape(0.dp, 0.dp, 15.dp, 15.dp)
-                )
-                .padding(20.dp)
-                .fillMaxWidth()
+            modifier = Modifier.fillMaxWidth()
         ) {
             Text("Date de naissance : ${DateHandler.getBirth(user.birth)}")
             Text("Email : ${user.email}")
