@@ -6,26 +6,37 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import io.github.cdimascio.dotenv.dotenv
+import quiz.components.atoms.ButtonDismiss
 import quiz.data.mongo.User
 import quiz.ui.theme.secondaryBackgroundColor
 import quiz.utils.DateHandler
 import quiz.utils.ImageHandler
 
 @Composable
-fun UserCard(user: User) {
+fun UserCard(user: User, closeDialog: () -> Unit) {
     val host = dotenv().get("DATA_HOST")
     val spacing = Arrangement.spacedBy(10.dp)
 
-    Column {
+    Column(
+        modifier = Modifier
+            .width(350.dp)
+            .background(
+                color = Color.White,
+                shape = RoundedCornerShape(15.dp),
+            )
+    ) {
         Header(user, spacing, host)
         Body(user)
+        Footer(closeDialog)
     }
 }
 
@@ -75,5 +86,12 @@ fun Body(user: User) {
             Text("Email : ${user.email}")
             Text("Métier : ${user.job}")
         }
+    }
+}
+
+@Composable
+fun Footer(closeDialog: () -> Unit) {
+    Row {
+        ButtonDismiss(textContent = "fermer", onClick = { closeDialog() })
     }
 }
