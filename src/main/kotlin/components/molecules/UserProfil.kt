@@ -29,7 +29,7 @@ import quiz.utils.ImageHandler
 import java.time.LocalTime
 
 @Composable
-fun UserProfil(user: User, connected: () -> Unit) {
+fun UserProfil(user: User, connected: () -> Unit, iconBtnClicked: () -> Unit) {
     val host = dotenv().get("DATA_HOST")
     val greet = if (LocalTime.now().hour in 18 downTo 5) "Bonjour" else "Bonsoir"
 
@@ -62,13 +62,17 @@ fun UserProfil(user: User, connected: () -> Unit) {
             },
             color = primaryForegroundColor
         )
-        Image(
-            bitmap = ImageHandler.loadFromUrl("$host/${user.photo}"),
-            contentDescription = "photo de ${user.firstname} ${user.lastname}",
-            modifier = Modifier
-                .width(30.dp)
-                .height(30.dp)
-                .clip(CircleShape)
-        )
+        IconButton(
+            onClick = { iconBtnClicked() }
+        ) {
+            Image(
+                bitmap = ImageHandler.loadFromUrl("$host/${user.photo}"),
+                contentDescription = "photo de ${user.firstname} ${user.lastname}",
+                modifier = Modifier
+                    .width(30.dp)
+                    .height(30.dp)
+                    .clip(CircleShape)
+            )
+        }
     }
 }
