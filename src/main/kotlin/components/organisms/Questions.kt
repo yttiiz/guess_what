@@ -96,6 +96,7 @@ fun Questions(rawQuestions: List<Question>, user: User) {
                     textContent = "Passer",
                     modifier = Modifier.width(200.dp),
                     onClick = {
+                        isOptionIsNotSet = false
                         results.add("no-response")
                         handleQuestions()
                     }

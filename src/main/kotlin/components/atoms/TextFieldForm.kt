@@ -1,13 +1,13 @@
 package quiz.components.atoms
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.ClickableText
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.foundation.text2.TextFieldDecorator
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import io.github.cdimascio.dotenv.dotenv
 import quiz.ui.theme.montserratRegular
 import quiz.ui.theme.neutralColor
+import quiz.ui.theme.primaryBackgroundColor
 import quiz.ui.theme.warningBackgroundColor
 
 @Composable
@@ -61,6 +62,11 @@ fun TextFieldForm(
                     },
                     textStyle = TextStyle(fontSize = 16.sp),
                     modifier = Modifier.fillMaxWidth(),
+                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                        unfocusedBorderColor = neutralColor,
+                        focusedBorderColor = primaryBackgroundColor,
+                        focusedLabelColor = primaryBackgroundColor
+                    )
                 )
                 Spacer(modifier = Modifier.height(5.dp))
                 ClickableText(
@@ -81,7 +87,12 @@ fun TextFieldForm(
                     onValueChange = onChange,
                     value = value,
                     textStyle = TextStyle(fontSize = 16.sp),
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = TextFieldDefaults.outlinedTextFieldColors(
+                        unfocusedBorderColor = neutralColor,
+                        focusedBorderColor = primaryBackgroundColor,
+                        focusedLabelColor = primaryBackgroundColor
+                    )
                 )
             }
             if (value.isEmpty() && message.isNotEmpty()) {
