@@ -26,7 +26,7 @@ fun UserCard(user: User, closeDialog: () -> Unit) {
 
     Column(
         modifier = Modifier
-            .width(350.dp)
+            .width(380.dp)
             .background(
                 color = Color.White,
                 shape = RoundedCornerShape(15.dp),
@@ -40,7 +40,7 @@ fun UserCard(user: User, closeDialog: () -> Unit) {
                     color = secondaryBackgroundColor,
                     shape = RoundedCornerShape(0.dp, 0.dp, 15.dp, 15.dp)
                 )
-                .padding(20.dp)
+                .padding(40.dp)
         ) {
             Body(user)
             Footer(closeDialog)
@@ -61,7 +61,7 @@ fun Header(
                     shape = RoundedCornerShape(15.dp, 15.dp, 0.dp, 0.dp),
                     color = secondaryBackgroundColor
                 )
-                .padding(20.dp)
+                .padding(40.dp)
                 .fillMaxWidth(),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             horizontalAlignment = Alignment.CenterHorizontally
@@ -83,7 +83,7 @@ fun Body(user: User) {
         Column(
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Date de naissance : ${DateHandler.getBirth(user.birth)}")
+            Text("Né(e) le : ${DateHandler.getBirth(user.birth)}")
             Text("Email : ${user.email}")
             Text("Métier : ${user.job}")
         }
@@ -93,6 +93,9 @@ fun Body(user: User) {
 @Composable
 fun Footer(closeDialog: () -> Unit) {
     Row {
-        ButtonDismiss(textContent = "fermer", onClick = { closeDialog() })
+        ButtonDismiss(
+            textContent = "fermer",
+            onClick = { closeDialog() }
+        )
     }
 }
