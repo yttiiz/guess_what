@@ -13,13 +13,14 @@ import quiz.components.atoms.ButtonDismiss
 import quiz.components.atoms.ButtonSubmit
 import quiz.components.molecules.ResultsCard
 import quiz.data.mongo.Question
+import quiz.data.mongo.User
 import quiz.ui.theme.primaryForegroundColor
 import quiz.ui.theme.warningBackgroundColor
 
 typealias QuestionType = MutableMap.MutableEntry<String, List<String>>
 
 @Composable
-fun Questions(rawQuestions: List<Question>, userName: String) {
+fun Questions(rawQuestions: List<Question>, user: User) {
     // Questions
     val questions by remember { mutableStateOf<Iterator<QuestionType>>(rawQuestions
         .foldIndexed<Question, MutableMap<String, List<String>>>(mutableMapOf()) { index, acc, question ->
@@ -52,7 +53,7 @@ fun Questions(rawQuestions: List<Question>, userName: String) {
 
     Column {
         if (isLastQuestionReached) {
-            ResultsCard(results, rawQuestions, userName)
+            ResultsCard(results, rawQuestions, user.firstname)
         } else {
             //============| Title |============//
             Text(

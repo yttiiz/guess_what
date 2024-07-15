@@ -65,7 +65,7 @@ fun HomeScreen(user: List<User>) {
             } else {
                 Questions(
                     rawQuestions = rawQuestions as List<Question>,
-                    userName = user.first().firstname
+                    user = user.first()
                 )
             }
         }

@@ -20,6 +20,7 @@ fun Header(
     isConnected: Boolean,
     user: List<User>?,
     connected: () -> Unit,
+    iconBtnClicked: () -> Unit
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -35,8 +36,8 @@ fun Header(
             height = 40.0,
         )
         Box {
-            if (isConnected) {
-                UserProfil(user!!.first(), connected)
+            if (isConnected && !user.isNullOrEmpty()) {
+                UserProfil(user.first(), connected, iconBtnClicked)
             }
         }
     }
