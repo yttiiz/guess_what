@@ -35,6 +35,9 @@ fun LoginForm(connected: () -> Unit, viewModel: UserViewModel) {
     val coroutineScope = rememberCoroutineScope()
 
     val handleUserVerification: () -> Unit = {
+        // Prevent display wrong error message.
+        if (isFormHasErrors) isFormHasErrors = false
+
         val isFormValidationNotOk = email.isEmpty() || password.isEmpty()
         val getMessage: (str: String) -> String = { str -> "Vous devez renseigner $str." }
 
